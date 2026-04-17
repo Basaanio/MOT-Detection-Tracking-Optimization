@@ -1,0 +1,11 @@
+data/
+MOT17/
+datasets/
+venv/
+.env
+*.mp4
+*.avi
+.DS_Store
+*.pkl
+outputs/
+*.pt
