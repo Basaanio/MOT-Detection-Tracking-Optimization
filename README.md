@@ -49,8 +49,16 @@ The entire experimental pipeline is self-contained within `notebooks/tracking_pi
 | **IDF1** | **~78.4%** | Strong identity consistency across sequences. |
 | **FPS** | **~85** | High throughput ensures minimal inter-frame displacement. |
 
+### Architecture Selection Study
+![Architecture Study](./assets/yolo11n_vs_11m.png)
+
+**Analysis: The Temporal Resolution Trade-off**
+Our scaling study demonstrates that for Multi-Object Tracking (MOT), **Inference Speed is a primary component of Accuracy.** * **The Nano Advantage:** While larger models (Medium/Small) theoretically offer higher per-frame detection precision, their lower FPS creates significant "temporal gaps."
+* **Association Stability:** YOLO11n's **~85 FPS** ensures that the displacement of pedestrians between frames is minimal. This allows the ByteTrack association logic to maintain high **IDF1 (78.4%)** by reducing the search radius for identity matching, effectively outperforming larger, slower models in a real-time tracking context.
+
 ## Qualitative Results: The Confidence Gap
 To validate the **Adaptive Thresholding** logic, I compared the baseline against optimized settings in a high-density frame (**MOT17-02**).
+![The Confidence Gap](./assets/confidence_gap.png)
 
 * **Baseline (0.5 Threshold):** Captured only **5 pedestrians**. Background targets were suppressed, leading to track fragmentation.
 * **Adaptive (0.2 Threshold):** Localized **14 pedestrians**. Recovering **9 additional targets** provided the "temporal hooks" necessary for ByteTrack to maintain identity through occlusions.
