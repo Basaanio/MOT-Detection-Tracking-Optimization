@@ -1,20 +1,20 @@
 # Multi-Object Tracking (MOT) Pipeline: YOLO11 & ByteTrack Analysis
 
 ## Project Overview
-[cite_start]This repository contains a Multi-Object Tracking (MOT) pipeline developed for the **MOT17** benchmark[cite: 1, 2]. [cite_start]The project implements a "Tracking-by-Detection" architecture using **YOLO11n** as the feature extractor and **ByteTrack** for temporal association[cite: 3, 40].
+This repository contains a Multi-Object Tracking (MOT) pipeline developed for the **MOT17** benchmark. The project implements a "Tracking-by-Detection" architecture using **YOLO11n** as the feature extractor and **ByteTrack** for temporal association.
 
-[cite_start]As part of a research-oriented challenge, this implementation focuses on the trade-off between inference throughput (FPS) and identity persistence (IDF1), specifically addressing **Occlusion-Induced "Blinking"** and **Camera Dynamics**[cite: 16, 64, 75, 79].
+As part of a research-oriented challenge, this implementation focuses on the trade-off between inference throughput (FPS) and identity persistence (IDF1), specifically addressing **Occlusion-Induced "Blinking"** and **Camera Dynamics**.
 
 ## System Requirements & Setup
-[cite_start]This pipeline was developed and benchmarked on **Apple M4 hardware** using Metal Performance Shaders (MPS) for hardware acceleration[cite: 22].
+This pipeline was developed and benchmarked on **Apple M4 hardware** using Metal Performance Shaders (MPS) for hardware acceleration.
 
 ### 1. Environment
-* [cite_start]**Hardware:** Apple Silicon (M4 tested)[cite: 22].
-* [cite_start]**Performance:** Achieved **~85 FPS**, ensuring high **Temporal Continuity** for tracking[cite: 22, 18].
-* [cite_start]**Key Dependencies:** `ultralytics`, `py-motmetrics`, `scipy`[cite: 17, 56].
+* **Hardware:** Apple Silicon (M4 tested).
+* **Performance:** Achieved **~85 FPS**, ensuring high **Temporal Continuity** for tracking.
+* **Key Dependencies:** `ultralytics`, `py-motmetrics`, `scipy`.
 
 ### 2. Dataset Structure
-[cite_start]Benchmarks were conducted across three key sequences: **MOT17-02, 05, and 09**[cite: 17]. 
+Benchmarks were conducted across three key sequences: **MOT17-02, 05, and 09**. 
 * **Note:** Large datasets and video outputs are excluded from this repository via `.gitignore` to maintain repository hygiene.
 
 ```text
