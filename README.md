@@ -9,7 +9,6 @@ As part of a research-oriented challenge, this implementation focuses on the tra
 This pipeline was developed and benchmarked on **Apple M4 hardware** using Metal Performance Shaders (MPS) for hardware acceleration.
 
 ### 1. Environment
-* **Hardware:** Apple Silicon (M4 tested).
 * **Performance:** Achieved **~85 FPS**, ensuring high **Temporal Continuity** for tracking.
 * **Key Dependencies:** `ultralytics`, `py-motmetrics`, `scipy`.
 
@@ -22,6 +21,8 @@ project-root/
 ├── Research and Implementation Report .pdf  # Final Technical Report
 ├── notebooks/
 │   └── tracking_pipeline.ipynb              # Main Experimentation Logic
+├── assets/
+│   └── demo.gif                             # Autoplayed results demo
 └── README.md                                # Project Documentation
 ```
 
@@ -32,6 +33,9 @@ The entire experimental pipeline is self-contained within `notebooks/tracking_pi
 2. **Evaluation:** Once inference is complete, the evaluation block utilizes `py-motmetrics` to compute MOTA and IDF1 against the MOT17 Ground Truth.
 
 ## Quantitative Results
+
+### Live Tracking Demo
+![MOT17 Tracking Demo](./assets/demo.gif)
 | Metric | Result | Analysis |
 | :--- | :--- | :--- |
 | **MOTA** | **~71.2%** | High localization accuracy using YOLO11n. |
@@ -47,10 +51,9 @@ To validate the **Adaptive Thresholding** logic, I compared the baseline against
 **Key Finding:** Lowering the threshold in crowded frames increased detection recovery by **180%**, directly reducing "blinking" and ID switches.
 
 ## Implementation & Reproducibility
-1. **Architecture:** YOLO11n detector + ByteTrack association.
-2. **Hardware:** Benchmarked on **macOS (M4)** using `device="mps"`.
-3. **Execution:** Open `notebooks/tracking_pipeline.ipynb`. Inference results are cached locally as `.pkl` files for deterministic evaluation.
-4. **Data Hygiene:** The MOT17 dataset and local caches are excluded via `.gitignore`.
+1. **Architecture:** YOLO11n detector coupled with ByteTrack association logic.
+2. **Caching:** Inference results are stored as `.pkl` files to allow for fast, deterministic re-evaluation without re-running the model.
+3. **Reproducibility:** All code is contained in `notebooks/tracking_pipeline.ipynb`. Simply follow the cell sequence to regenerate metrics.
 
 ## Research Challenges & Insights
 Non-Deterministic Caching: During iterative testing, I observed that inference results could fluctuate due to model caching. I implemented a "fresh-state" predictor logic to ensure all comparative experiments were scientifically deterministic.
