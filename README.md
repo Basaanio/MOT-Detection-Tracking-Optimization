@@ -18,7 +18,7 @@ Benchmarks were conducted across three key sequences: **MOT17-02, 05, and 09**.
 
 ```text
 project-root/
-├── Research and Implementation Report .pdf  # Final Technical Report
+├── MOT17_Research_Report .pdf               # Final Technical Report
 ├── notebooks/
 │   └── tracking_pipeline.ipynb              # Main Experimentation Logic
 ├── assets/
@@ -56,12 +56,12 @@ To validate the **Adaptive Thresholding** logic, I compared the baseline against
 3. **Reproducibility:** All code is contained in `notebooks/tracking_pipeline.ipynb`. Simply follow the cell sequence to regenerate metrics.
 
 ## Research Challenges & Insights
-Non-Deterministic Caching: During iterative testing, I observed that inference results could fluctuate due to model caching. I implemented a "fresh-state" predictor logic to ensure all comparative experiments were scientifically deterministic.
+* **Non-Deterministic Caching**: During iterative testing, I observed that inference results could fluctuate due to model caching. I implemented a "fresh-state" predictor logic to ensure all comparative experiments were scientifically deterministic.
 
-Precision-Recall Trade-off: While lowering the threshold to 0.15 recovered significant occlusions, it introduced a 2% increase in false positives (e.g., background noise identified as pedestrians). Future work would involve integrating a spatial mask to apply low thresholds only in known "crowd clusters."
+* **Precision-Recall Trade-off**: While lowering the threshold to 0.15 recovered significant occlusions, it introduced a 2% increase in false positives (e.g., background noise identified as pedestrians). Future work would involve integrating a spatial mask to apply low thresholds only in known "crowd clusters."
 
 ## Deliverables
-* **[Research and Implementation Report (PDF)](./MOT17_Research_Report.pdf)**: Detailed 5-step analysis covering dataset exploration, trade-offs, and failure mode diagnostics.
+* **[MOT17_Research_Report (PDF)](./MOT17_Research_Report.pdf)**: Detailed 5-step analysis covering dataset exploration, trade-offs, and failure mode diagnostics.
 * **Source Code:** Documented pipeline logic within the `notebooks/` directory.
 
 ## Future Work
