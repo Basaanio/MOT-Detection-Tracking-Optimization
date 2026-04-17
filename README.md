@@ -18,11 +18,13 @@ Benchmarks were conducted across three key sequences: **MOT17-02, 05, and 09**.
 
 ```text
 project-root/
-├── MOT17_Research_Report .pdf               # Final Technical Report
+├── MOT17_Research_Report.pdf                # Final Technical Report
 ├── notebooks/
 │   └── tracking_pipeline.ipynb              # Main Experimentation Logic
 ├── assets/
-│   └── demo.gif                             # Autoplayed results demo
+│   ├── demo.gif                             # Autoplayed results demo
+|   ├── yolo11n_vs_11m.png                   # Architecture scaling study graph
+│   └── confidence_gap.png                   # Adaptive thresholding ablation chart
 └── README.md                                # Project Documentation
 ```
 
@@ -53,7 +55,8 @@ The entire experimental pipeline is self-contained within `notebooks/tracking_pi
 ![Architecture Study](./assets/yolo11n_vs_11m.png)
 
 **Analysis: The Temporal Resolution Trade-off**
-Our scaling study demonstrates that for Multi-Object Tracking (MOT), **Inference Speed is a primary component of Accuracy.** * **The Nano Advantage:** While larger models (Medium/Small) theoretically offer higher per-frame detection precision, their lower FPS creates significant "temporal gaps."
+Our scaling study demonstrates that for Multi-Object Tracking (MOT), **Inference Speed is a primary component of Accuracy.** 
+* **The Nano Advantage:** While larger models (Medium/Small) theoretically offer higher per-frame detection precision, their lower FPS creates significant "temporal gaps."
 * **Association Stability:** YOLO11n's **~85 FPS** ensures that the displacement of pedestrians between frames is minimal. This allows the ByteTrack association logic to maintain high **IDF1 (78.4%)** by reducing the search radius for identity matching, effectively outperforming larger, slower models in a real-time tracking context.
 
 ## Qualitative Results: The Confidence Gap
