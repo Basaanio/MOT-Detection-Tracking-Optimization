@@ -30,7 +30,7 @@ project-root/
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/Basaanio/MOT-Detection-Tracking-Optimization.git](https://github.com/Basaanio/MOT-Detection-Tracking-Optimization.git)
+git clone https://github.com/Basaanio/MOT-Detection-Tracking-Optimization.git
 cd MOT-Detection-Tracking-Optimization
 ```
 ### 2. Execution Flow
