@@ -1,4 +1,4 @@
-# Multi-Object Tracking (MOT) Pipeline: YOLO11 & ByteTrack Analysis
+# Multi-Object Tracking (MOT) Pipeline: YOLO11n & ByteTrack Analysis
 
 ## Project Overview
 This repository contains a Multi-Object Tracking (MOT) pipeline developed for the **MOT17** benchmark. The project implements a "Tracking-by-Detection" architecture using **YOLO11n** as the feature extractor and **ByteTrack** for temporal association.
