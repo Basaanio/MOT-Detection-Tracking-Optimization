@@ -27,6 +27,13 @@ project-root/
 ```
 
 ## How to Reproduce Results
+
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/Basaanio/MOT-Detection-Tracking-Optimization.git](https://github.com/Basaanio/MOT-Detection-Tracking-Optimization.git)
+cd MOT-Detection-Tracking-Optimization
+```
+### 2. Execution Flow
 The entire experimental pipeline is self-contained within `notebooks/tracking_pipeline.ipynb`.
 
 1. **Inference:** Run the initial cells to execute YOLO11n inference. The script will generate `.pkl` cache files locally to ensure that subsequent metric evaluations are fast and deterministic.
