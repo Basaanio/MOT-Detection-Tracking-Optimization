@@ -22,7 +22,6 @@ project-root/
 ├── Research and Implementation Report .pdf  # Final Technical Report
 ├── notebooks/
 │   └── tracking_pipeline.ipynb              # Main Experimentation Logic
-├── src/                                     # YOLO11 + ByteTrack Source Scripts
 └── README.md                                # Project Documentation
 ```
 
